@@ -1,121 +1,100 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    background: linear-gradient(135deg, #A7D640, #4ABDAC);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background: linear-gradient(135deg, #a0e075, #4dc0b5);
     font-family: 'Poppins', sans-serif;
-    padding: 2rem;
-}
-
-h1 {
-    margin-bottom: 2rem;
-    color: #fff;
-    font-size: 3rem;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-.container {
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.container {
+    text-align: center;
+}
+
+#msg {
+    display: none;
+    font-size: 3rem;
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    margin-bottom: 3rem;
+}
+
+.show-winner #msg {
+    display: block;
+}
+
+.show-winner .game, .show-winner h1, .show-winner #reset {
+    display: none;
+}
+
+h1 {
+    font-size: 4rem;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    margin-bottom: 2rem;
 }
 
 .game {
     display: grid;
     grid-template-columns: repeat(3, 100px);
-    grid-template-rows: repeat(3, 100px);
-    gap: 15px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 2rem;
+    grid-gap: 15px;
+    justify-content: center;
+    margin: 0 auto 2rem;
     padding: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 2rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 .box {
     width: 100px;
     height: 100px;
+    background-color: rgba(255, 255, 255, 0.2);
     border-radius: 1rem;
-    border: none;
-    background: rgba(255, 255, 255, 0.25);
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.1), 0 4px 20px rgba(0,0,0,0.1);
     font-size: 3rem;
-    color: #FF5E5B;
+    color: #ff4d4d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .box:hover {
-    transform: scale(1.08);
-    box-shadow: 0 6px 30px rgba(0,0,0,0.15);
+    background-color: rgba(255, 255, 255, 0.4);
 }
 
-/* Align New Game and Reset buttons side by side */
-#new-btn, #reset {
+button {
     padding: 1rem 2rem;
-    font-size: 1.3rem;
-    background: linear-gradient(135deg, #191913, #343434);
+    font-size: 1.2rem;
+    background-color: #111;
     color: #fff;
-    border-radius: 2rem;
     border: none;
+    border-radius: 2rem;
     cursor: pointer;
-    transition: transform 0.2s ease, background 0.3s ease;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-    margin: 20px 10px;
+    transition: background 0.3s, transform 0.2s;
+    margin: 1rem;
 }
 
-#new-btn:hover, #reset:hover {
-    transform: translateY(-4px);
-    background: linear-gradient(135deg, #343434, #191913);
+button:hover {
+    background-color: #333;
+    transform: scale(1.05);
 }
 
-/* Put New Game & Reset Game buttons in one line using flex */
 #new-btn {
-    position: relative;
-    display: inline-block;
+    display: none;
 }
-#reset {
-    position: relative;
+
+.show-winner #new-btn {
     display: inline-block;
-}
-.buttons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
     margin-top: 2rem;
-}
-
-/* Style the winner message container */
-.msg-container {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    gap: 3rem;
-    margin-top: 5rem;
-}
-
-/* When winner message appears, show only message and new game button */
-.msg-container.show {
-    display: flex;
-}
-
-/* Add spacing between winner message and New Game button */
-.msg-container.show #msg {
-    margin-bottom: 3rem;
-    color: #fff;
-    font-size: 3rem;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
-    animation: pop 0.6s ease-in-out;
-}
-.msg-container.show + h1,
-.msg-container.show + h1 + .container,
-.msg-container.show + h1 + .container + .buttons,
-.msg-container.show ~ .buttons {
-    display: none;
-}
-
-@keyframes pop {
-    0% { transform: scale(0.8); opacity: 0; }
-    50% { transform: scale(1.1); opacity: 1; }
-    100% { transform: scale(1); }
 }
