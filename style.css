@@ -1,11 +1,16 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    background-color: #A7D640;
-    text-align : center;
+    background: linear-gradient(135deg, #A7D640, #4ABDAC);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
 }
 
 .container {
@@ -13,9 +18,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    backdrop-filter: blur(20px);
 }
 
-.game{
+.game {
     height: 60vmin;
     width: 60vmin;
     display: flex;
@@ -24,40 +30,60 @@ body {
     align-items: center;
     gap: 1.5vmin;
     margin: 0 auto;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 2rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    padding: 2vmin;
 }
 
 .box {
     height: 18vmin;
     width: 18vmin;
     border-radius: 1rem;
-    border: none ;
-    box-shadow: 0 0 1rem rgba(0,0,0,0.3);
-    font-size: 8vmin;
-    color: #ca3c25;
-    background-color: #ffffc7;
+    border: none;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    font-size: 7.5vmin;
+    color: #FF5E5B;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
 }
 
-#reset {
-    padding: 1rem;
-    font-size: 1.25rem;
-    background-color: #191913;
-    color: #fff;
-    border-radius: 1rem;
-    border: none;
+.box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 30px rgba(0,0,0,0.2);
 }
 
-#new-btn {
-    padding: 1rem;
-    font-size: 1.25rem;
-    background-color: #191913;
+#reset, #new-btn {
+    padding: 1rem 2rem;
+    font-size: 1.3rem;
+    background: linear-gradient(135deg, #191913, #343434);
     color: #fff;
-    border-radius: 1rem;
+    border-radius: 2rem;
     border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    margin: 1rem;
+}
+
+#reset:hover, #new-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    background: linear-gradient(135deg, #343434, #191913);
 }
 
 #msg {
-    color: #ffffc7;
+    color: #fff;
     font-size: 8vmin;   
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    animation: pop 0.6s ease-in-out;
+}
+
+@keyframes pop {
+    0% { transform: scale(0.8); opacity: 0; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); }
 }
 
 .msg-container {
@@ -65,9 +91,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction : column;
+    flex-direction: column;
     gap: 4rem;
-    padding-bottom :- 150vh
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(20px);
+    border-radius: 2rem;
 }
 
 .hide {
