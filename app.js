@@ -70,7 +70,7 @@ const disableBoxes = () => {
   };
 
 const showWinner = (winner) => {
-    msg.innerText = `WINNER WINNER CHICHIKEN DINNER FOR ${winner}`;
+    msg.innerText = `WINNER WINNER CHICKEN DINNER FOR ${winner}`;
     msgContainer.classList.remove("hide");
    gameOver = true;
     disableBoxes();
